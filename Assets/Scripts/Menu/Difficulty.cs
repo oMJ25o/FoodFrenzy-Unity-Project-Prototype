@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Difficulty : MonoBehaviour
 {
-    [SerializeField] private int difficultyValue;
+    [SerializeField] private float difficultyValue;
     [SerializeField] private int difficultyGravity;
 
     private Button button;
@@ -25,7 +25,7 @@ public class Difficulty : MonoBehaviour
     private void SetDifficulty()
     {
         GameManager.gameInstance.difficultyValue = difficultyValue;
-
+        GameManager.gameInstance.difficultyGravity = difficultyGravity;
     }
 
 }
