@@ -5,11 +5,9 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField playerNameInputField;
-
     public static GameManager gameInstance { get; private set; } //ENCAPSULATION
-
-    private int b_DifficultyValue;
+    private string b_playerName; //BACKING VARIABLE
+    private int b_DifficultyValue; //BACKING VARIABLE
     public int difficultyValue //ENCAPSULATION
     {
         //Return the value in the Backing Variable of Difficulty Value
@@ -28,6 +26,11 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public string playerName //ENCAPSULATION
+    {
+        get { return b_playerName; }
+        set { b_playerName = value; }
+    }
 
     void Start()
     {
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log(playerNameInputField.GetComponentInChildren<TMP_InputField>().text);
+        Debug.Log(playerName);
         Debug.Log(difficultyValue);
     }
 }
