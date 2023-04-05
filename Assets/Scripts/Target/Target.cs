@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed;
-    [SerializeField] private float xRotation;
-    [SerializeField] private float yRotation;
-    [SerializeField] private AudioClip explosionAudio;
-    [SerializeField] private AudioClip catchAudio;
+    [SerializeField] protected float rotationSpeed;
+    [SerializeField] protected float xRotation;
+    [SerializeField] protected float yRotation;
+    [SerializeField] protected AudioClip explosionAudio;
+    [SerializeField] protected AudioClip catchAudio;
 
-    private AudioSource audioSource;
-    private GameManager gameManager;
+    protected AudioSource audioSource;
+    protected GameManager gameManager;
     private ParticleSystem bombExplosion;
-    private GameObject collectionBox;
+    protected GameObject collectionBox;
     // Start is called before the first frame update
     void Start()
     {

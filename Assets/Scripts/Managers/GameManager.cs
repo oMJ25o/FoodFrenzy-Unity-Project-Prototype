@@ -6,16 +6,17 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gameInstance { get; private set; } //ENCAPSULATION
     private string b_playerName; //BACKING PLAYER NAME VARIABLE
     private int b_difficultyGravity; //BACKING DIFFICULTY GRAVITY VARIABLE
+    private int b_difficultyTimer; //BACKING DIFFICULTY TIMER VARIABLE
     private float b_DifficultyValue; //BACKING DIFFICULTY VALUE VARIABLE
-    public string playerName //ENCAPSULATION
+
+    public string playerName //ENCAPSULATION AUTO-IMPLEMENTED PROPERTY
     {
         get { return b_playerName; }
         set { b_playerName = value; }
     }
-    public int difficultyGravity //ENCAPSULATION
+    public int difficultyGravity //ENCAPSULATION AUTO-IMPLEMENTED PROPERTY
     {
         get { return b_difficultyGravity; }
         set
@@ -30,7 +31,22 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    public float difficultyValue //ENCAPSULATION
+    public int difficultyTimer //ENCAPSULATION AUTO-IMPLEMENTED PROPERTY
+    {
+        get { return b_difficultyTimer; }
+        set
+        {
+            if (value > 0.0f)
+            {
+                b_difficultyTimer = value;
+            }
+            else
+            {
+                Debug.Log("Difficulty timer cannot be negative or 0");
+            }
+        }
+    }
+    public float difficultyValue //ENCAPSULATION AUTO-IMPLEMENTED PROPERTY
     {
         //Return the value in the Backing Variable of Difficulty Value
         get { return b_DifficultyValue; }
@@ -48,7 +64,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
+    public static GameManager gameInstance { get; private set; } //ENCAPSULATION AUTO-IMPLEMENTED PROPERTY
 
     void Start()
     {

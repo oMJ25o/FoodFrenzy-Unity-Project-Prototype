@@ -7,6 +7,7 @@ public class Difficulty : MonoBehaviour
 {
     [SerializeField] private float difficultyValue;
     [SerializeField] private int difficultyGravity;
+    [SerializeField] private int difficultyTimer;
 
     private Button button;
     // Start is called before the first frame update
@@ -26,6 +27,9 @@ public class Difficulty : MonoBehaviour
     {
         GameManager.gameInstance.difficultyValue = difficultyValue;
         GameManager.gameInstance.difficultyGravity = difficultyGravity;
+        GameManager.gameInstance.difficultyTimer = difficultyTimer;
+
+        GameManager.gameInstance.StartGame();
     }
 
 }
