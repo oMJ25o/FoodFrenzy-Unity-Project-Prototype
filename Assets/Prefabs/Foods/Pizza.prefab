@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1120529583547681562}
   - component: {fileID: 1120529583546387258}
   - component: {fileID: 1120529583545256442}
+  - component: {fileID: -2039475325591272549}
   - component: {fileID: 1120529583547552131}
   - component: {fileID: 1120529583547552135}
-  - component: {fileID: -4293350519287981456}
   - component: {fileID: -3471102852334744583}
   m_Layer: 0
   m_Name: Pizza
@@ -87,6 +87,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2039475325591272549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120529583547520826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12db21633781d8f4cb128abb869b8827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
+  xRotation: 10
+  yRotation: 10
+  catchAudio: {fileID: 8300000, guid: f928159802e324af2b95417fa6ce3fdf, type: 3}
 --- !u!54 &1120529583547552131
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,23 +132,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4597009, y: 0.13234866, z: 0.5536318}
   m_Center: {x: 0, y: 0, z: -0.00000019371514}
---- !u!114 &-4293350519287981456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120529583547520826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02cb0c3c15d34dc42b8e4c25d2b6621d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 10
-  xRotation: 10
-  yRotation: 10
-  explosionAudio: {fileID: 0}
-  catchAudio: {fileID: 8300000, guid: f928159802e324af2b95417fa6ce3fdf, type: 3}
 --- !u!82 &-3471102852334744583
 AudioSource:
   m_ObjectHideFlags: 0

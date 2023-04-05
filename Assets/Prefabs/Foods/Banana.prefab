@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5199193882086315668}
   - component: {fileID: 5210872498510915094}
   - component: {fileID: 5222598450457567464}
+  - component: {fileID: 7382319682692515651}
   - component: {fileID: 5199580054684702893}
   - component: {fileID: 5199580054684702889}
-  - component: {fileID: 3592580081635930631}
   - component: {fileID: 5572532970589286529}
   m_Layer: 0
   m_Name: Banana
@@ -87,6 +87,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7382319682692515651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200725007483590156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12db21633781d8f4cb128abb869b8827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
+  xRotation: 10
+  yRotation: 10
+  catchAudio: {fileID: 8300000, guid: f928159802e324af2b95417fa6ce3fdf, type: 3}
 --- !u!54 &5199580054684702893
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,23 +132,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.50622404, y: 0.47573793, z: 0.4844519}
   m_Center: {x: 0, y: 0.009565257, z: 0.021385126}
---- !u!114 &3592580081635930631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5200725007483590156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02cb0c3c15d34dc42b8e4c25d2b6621d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 10
-  xRotation: 10
-  yRotation: 10
-  explosionAudio: {fileID: 0}
-  catchAudio: {fileID: 8300000, guid: f928159802e324af2b95417fa6ce3fdf, type: 3}
 --- !u!82 &5572532970589286529
 AudioSource:
   m_ObjectHideFlags: 0

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8199702892932925589}
   - component: {fileID: 8199702892936380075}
   - component: {fileID: 8199702892934871339}
+  - component: {fileID: 6004560111124450464}
   - component: {fileID: 8199702892933042324}
   - component: {fileID: 8199702892933042320}
-  - component: {fileID: 4006025401060393590}
   - component: {fileID: -3164186776458879304}
   m_Layer: 0
   m_Name: Fish
@@ -87,6 +87,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6004560111124450464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199702892933161365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12db21633781d8f4cb128abb869b8827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
+  xRotation: 10
+  yRotation: 10
+  catchAudio: {fileID: 8300000, guid: f928159802e324af2b95417fa6ce3fdf, type: 3}
 --- !u!54 &8199702892933042324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,23 +132,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.26173592, y: 0.13675985, z: 0.4304056}
   m_Center: {x: 0, y: 0.111486316, z: 0.003429831}
---- !u!114 &4006025401060393590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199702892933161365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02cb0c3c15d34dc42b8e4c25d2b6621d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 10
-  xRotation: 10
-  yRotation: 10
-  explosionAudio: {fileID: 0}
-  catchAudio: {fileID: 8300000, guid: f928159802e324af2b95417fa6ce3fdf, type: 3}
 --- !u!82 &-3164186776458879304
 AudioSource:
   m_ObjectHideFlags: 0

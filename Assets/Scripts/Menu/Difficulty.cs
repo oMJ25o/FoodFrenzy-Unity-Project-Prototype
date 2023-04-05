@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class Difficulty : MonoBehaviour
 {
-    [SerializeField] private int difficultyValue;
+    [SerializeField] private float difficultyValue;
     [SerializeField] private int difficultyGravity;
+    [SerializeField] private int difficultyTimer;
 
     private Button button;
     // Start is called before the first frame update
@@ -25,7 +26,10 @@ public class Difficulty : MonoBehaviour
     private void SetDifficulty()
     {
         GameManager.gameInstance.difficultyValue = difficultyValue;
+        GameManager.gameInstance.difficultyTimer = difficultyTimer;
+        GameManager.gameInstance.difficultyGravity = difficultyGravity;
 
+        GameManager.gameInstance.StartGame();
     }
 
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8967574881067456941}
   - component: {fileID: 8960413599236991311}
   - component: {fileID: 9032746956194831425}
-  - component: {fileID: 9205555526003194264}
+  - component: {fileID: 6206670230162320973}
   - component: {fileID: -1672642652513017123}
   - component: {fileID: -7795422060846961821}
   - component: {fileID: -7226186023126697464}
@@ -109,7 +109,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &9205555526003194264
+--- !u!114 &6206670230162320973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,14 +118,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8938959871228749889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02cb0c3c15d34dc42b8e4c25d2b6621d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ab18cda16fe7ee43b3bad163b515acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 10
   xRotation: 10
   yRotation: 10
   explosionAudio: {fileID: 8300000, guid: 2a921313c927f45238a0b8baabe3ab12, type: 3}
-  catchAudio: {fileID: 0}
 --- !u!54 &-1672642652513017123
 Rigidbody:
   m_ObjectHideFlags: 0
