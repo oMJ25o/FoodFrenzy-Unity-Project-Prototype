@@ -340,7 +340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 106777754}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1670830260}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &106777754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,6 +1878,7 @@ GameObject:
   - component: {fileID: 944848202}
   - component: {fileID: 944848201}
   - component: {fileID: 944848200}
+  - component: {fileID: 944848203}
   m_Layer: 5
   m_Name: HardButton
   m_TagString: Untagged
@@ -1976,6 +1989,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944848198}
   m_CullTransparentMesh: 1
+--- !u!114 &944848203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944848198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572d6747f3bda32418c9786be2ce2a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 3
+  difficultyGravity: 0
 --- !u!1 &1070480422
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2149,7 @@ GameObject:
   - component: {fileID: 1192265352}
   - component: {fileID: 1192265351}
   - component: {fileID: 1192265350}
+  - component: {fileID: 1192265353}
   m_Layer: 5
   m_Name: EasyButton
   m_TagString: Untagged
@@ -2232,6 +2260,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192265348}
   m_CullTransparentMesh: 1
+--- !u!114 &1192265353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192265348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572d6747f3bda32418c9786be2ce2a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 1
+  difficultyGravity: 0
 --- !u!1 &1273144510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,7 +2721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1376735694
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2973,6 +3015,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607104229}
   m_CullTransparentMesh: 1
+--- !u!1 &1670830259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1670830261}
+  - component: {fileID: 1670830260}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1670830260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670830259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a0aadee37925343aa64b88353c2967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1670830261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670830259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1517.0911, y: 144.1142, z: -2.0303464}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671155538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,13 +3192,14 @@ GameObject:
   - component: {fileID: 1723804921}
   - component: {fileID: 1723804923}
   - component: {fileID: 1723804922}
+  - component: {fileID: 1723804924}
   m_Layer: 5
   m_Name: NewGameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1723804921
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3176,6 +3263,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723804920}
   m_CullTransparentMesh: 1
+--- !u!114 &1723804924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723804920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb5925ab60513e4db3147011f3b4c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNameInputField: {fileID: 276364916}
 --- !u!1 &1773933562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3768,6 +3868,7 @@ GameObject:
   - component: {fileID: 2062226174}
   - component: {fileID: 2062226173}
   - component: {fileID: 2062226172}
+  - component: {fileID: 2062226175}
   m_Layer: 5
   m_Name: MediumButton
   m_TagString: Untagged
@@ -3878,6 +3979,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062226170}
   m_CullTransparentMesh: 1
+--- !u!114 &2062226175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062226170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572d6747f3bda32418c9786be2ce2a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 2
+  difficultyGravity: 0
 --- !u!1 &2089853258
 GameObject:
   m_ObjectHideFlags: 0
