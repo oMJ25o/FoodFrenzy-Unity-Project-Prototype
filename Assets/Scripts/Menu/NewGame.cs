@@ -7,6 +7,8 @@ public class NewGame : MainMenu
 {
     [SerializeField] private TMP_InputField playerNameInputField;
     [SerializeField] protected GameObject newGameUI;
+    [SerializeField] private GameObject requiredText;
+
     //BASIC ENCAPSULATION
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,11 @@ public class NewGame : MainMenu
     void Update()
     {
 
+    }
+
+    public void ShowRequiredText()
+    {
+        requiredText.SetActive(true);
     }
 
     public void OpenNewGame()

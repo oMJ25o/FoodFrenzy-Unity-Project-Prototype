@@ -25,11 +25,18 @@ public class Difficulty : MonoBehaviour
 
     private void SetDifficulty()
     {
-        GameManager.gameInstance.difficultyValue = difficultyValue;
-        GameManager.gameInstance.difficultyTimer = difficultyTimer;
-        GameManager.gameInstance.difficultyGravity = difficultyGravity;
+        if (GameManager.gameInstance.playerName == null || GameManager.gameInstance.playerName.Trim() == "")
+        {
+            GameObject.Find("NewGameUI").GetComponent<NewGame>().ShowRequiredText();
+        }
+        else
+        {
+            GameManager.gameInstance.difficultyValue = difficultyValue;
+            GameManager.gameInstance.difficultyTimer = difficultyTimer;
+            GameManager.gameInstance.difficultyGravity = difficultyGravity;
 
-        GameManager.gameInstance.StartGame();
+            GameManager.gameInstance.StartGame();
+        }
     }
 
 }

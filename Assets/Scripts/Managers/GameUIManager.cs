@@ -15,6 +15,7 @@ public class GameUIManager : MonoBehaviour
     public bool gameOver { get; private set; }
 
     private int gameTimer;
+    private int currentLives;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,11 @@ public class GameUIManager : MonoBehaviour
     private void SetupGame()
     {
         gameOver = false;
+        foreach (var lives in playerLives)
+        {
+            lives.SetActive(true);
+        }
+        currentLives = playerLives.Length - 1;
         playerNameText.text = "Player: " + GameManager.gameInstance.playerName;
         gameTimer = GameManager.gameInstance.difficultyTimer;
         gameTimerText.text = "Timer: " + gameTimer;
@@ -49,6 +55,17 @@ public class GameUIManager : MonoBehaviour
             gameOverScreen.SetActive(true);
             GameManager.gameInstance.CheckHighScore(int.Parse(countText.text.ToString()));
         }
+    }
+
+    public void DecreaseLife()
+    {
+        playerLives[currentLives].SetActive(false);
+        if (currentLives == 0)
+        {
+            gameOver = true;
+            ShowGameOverScreen();
+        }
+        currentLives--;
     }
 
     IEnumerator StartGameTimer()

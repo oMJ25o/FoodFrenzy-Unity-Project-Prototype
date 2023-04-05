@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : Target
+public class Bomb : Target //INHERITANCE
 {
     [SerializeField] protected AudioClip explosionAudio;
     protected ParticleSystem bombExplosion;
@@ -29,7 +29,7 @@ public class Bomb : Target
         if (!gameUIManager.gameOver)
         {
             bombExplosion.Play();
-            //gameManager.DecreaseLife();
+            gameUIManager.DecreaseLife();
             bombExplosion.GetComponent<AudioSource>().Play();
             Destroy(gameObject);
         }

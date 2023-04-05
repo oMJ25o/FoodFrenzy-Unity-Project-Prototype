@@ -27,14 +27,19 @@ public abstract class Target : MonoBehaviour
         }
     }
 
+    //POLYMORPHISM
     protected virtual void SetupTarget()
     {
         gameUIManager = GameObject.Find("GameUI").GetComponent<GameUIManager>();
         audioSource = GetComponent<AudioSource>();
         RandomRotation();
     }
+    //POLYMORPHISM
     protected virtual Vector3 GenerateRandomRotation() { return new Vector3(Random.Range(-xRotation, xRotation), Random.Range(-yRotation, yRotation)); }
+
+    //POLYMORPHISM
     protected virtual void RandomRotation() { GetComponent<Rigidbody>().AddTorque(GenerateRandomRotation() * rotationSpeed, ForceMode.Impulse); }
 
+    //POLYMORPHISM
     protected abstract void OnMouseDown();
 }
