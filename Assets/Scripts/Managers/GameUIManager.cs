@@ -47,7 +47,7 @@ public class GameUIManager : MonoBehaviour
         if (gameOver)
         {
             gameOverScreen.SetActive(true);
-            GameManager.gameInstance.CheckHighScore(int.Parse(countText.text));
+            GameManager.gameInstance.CheckHighScore(int.Parse(countText.text.ToString()));
         }
     }
 

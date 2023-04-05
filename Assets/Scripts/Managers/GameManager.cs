@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -67,11 +68,19 @@ public class GameManager : MonoBehaviour
     public static GameManager gameInstance { get; private set; } //ENCAPSULATION AUTO-IMPLEMENTED PROPERTY
     private HighScoreData scoreData;
 
+    [HideInInspector] public Dictionary<string, int> currentHighScoreDataDict;
+    [HideInInspector] public List<int> currentHighScoreData;
+    [HideInInspector] public List<string> currentHighScorePlayerName;
+
     void Start()
     {
         if (gameInstance == null)
         {
             gameInstance = this;
+            GameManager.gameInstance.scoreData = new HighScoreData();
+            GameManager.gameInstance.scoreData.highScorePlayerData = new List<int>();
+            GameManager.gameInstance.scoreData.highScorePlayerName = new List<string>();
+
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -85,34 +94,95 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void GetAllHighScoreData()
+    {
+        string path = Application.persistentDataPath + "/highscore_savefile.json";
+        if (File.Exists(path))
+        {
+            GetSaveFileData(path);
+            currentHighScoreData = GameManager.gameInstance.scoreData.highScorePlayerData;
+            currentHighScorePlayerName = GameManager.gameInstance.scoreData.highScorePlayerName;
+        }
+
+    }
+
+    public void GetSaveFileData(string path)
+    {
+        string json = File.ReadAllText(path);
+        GameManager.gameInstance.scoreData = JsonUtility.FromJson<HighScoreData>(json);
+    }
+
     public void CheckHighScore(int score)
     {
         string path = Application.persistentDataPath + "/highscore_savefile.json";
 
         if (!File.Exists(path))
         {
-            GameManager.gameInstance.scoreData.highScoreData.Add(playerName, score);
-            SaveHighScoreFile(path);
+            AddDataToHighScoreData(score, path);
         }
         else
         {
             HighScoreData existingHighScore = new HighScoreData();
+            existingHighScore.highScorePlayerData = new List<int>();
+            existingHighScore.highScorePlayerName = new List<string>();
 
             string json = File.ReadAllText(path);
             existingHighScore = JsonUtility.FromJson<HighScoreData>(json);
 
-            if (!existingHighScore.highScoreData.ContainsKey(playerName))
+            GetSaveFileData(path);
+            for (int i = 0; i < existingHighScore.highScorePlayerName.Count; i++)
             {
-                GameManager.gameInstance.scoreData.highScoreData.Add(playerName, score);
-                SaveHighScoreFile(path);
-            }
-            else if (existingHighScore.highScoreData.ContainsKey(playerName) && score > existingHighScore.highScoreData[playerName])
-            {
-                existingHighScore.highScoreData[playerName] = score;
-                GameManager.gameInstance.scoreData.highScoreData = existingHighScore.highScoreData;
-                SaveHighScoreFile(path);
+                if (existingHighScore.highScorePlayerName[i] == playerName && score > existingHighScore.highScorePlayerData[i])
+                {
+                    GameManager.gameInstance.scoreData.highScorePlayerData[i] = score;
+                    SaveHighScoreFile(path);
+                    return;
+                }
+                else if (existingHighScore.highScorePlayerName[i] != playerName && i == (existingHighScore.highScorePlayerName.Count - 1) && existingHighScore.highScorePlayerName.Count < 5)
+                {
+                    AddDataToHighScoreData(score, path);
+                    return;
+                }
+                else if (score > existingHighScore.highScorePlayerData[i] && existingHighScore.highScorePlayerName.Count >= 5)
+                {
+                    MoveToDictionary();
+                    GameManager.gameInstance.currentHighScoreDataDict.Remove(currentHighScoreDataDict.OrderByDescending(r => r.Value).Last().Key);
+                    MoveToHighScoreData();
+                    AddDataToHighScoreData(score, path);
+                    return;
+                }
             }
         }
+    }
+
+    public void MoveToDictionary()
+    {
+        GameManager.gameInstance.currentHighScoreDataDict = new Dictionary<string, int>();
+        for (int x = 0; x < GameManager.gameInstance.currentHighScorePlayerName.Count; x++)
+        {
+            GameManager.gameInstance.currentHighScoreDataDict.Add(GameManager.gameInstance.currentHighScorePlayerName[x], GameManager.gameInstance.currentHighScoreData[x]);
+        }
+    }
+
+    public void MoveToHighScoreData()
+    {
+        int i = 0;
+
+        GameManager.gameInstance.scoreData.highScorePlayerData = new List<int>();
+        GameManager.gameInstance.scoreData.highScorePlayerName = new List<string>();
+        foreach (var item in currentHighScoreDataDict)
+        {
+            GameManager.gameInstance.scoreData.highScorePlayerName.Add(item.Key);
+            GameManager.gameInstance.scoreData.highScorePlayerData.Add(item.Value);
+            i++;
+        }
+    }
+
+    private void AddDataToHighScoreData(int score, string path)
+    {
+        GameManager.gameInstance.scoreData.highScorePlayerName.Add(playerName);
+        GameManager.gameInstance.scoreData.highScorePlayerData.Add(score);
+        SaveHighScoreFile(path);
     }
 
     private void SaveHighScoreFile(string path)
@@ -124,6 +194,7 @@ public class GameManager : MonoBehaviour
     [System.Serializable]
     class HighScoreData
     {
-        public Dictionary<string, int> highScoreData; //Dictionary of high score per player name ex. ["MJ", 25]
+        public List<string> highScorePlayerName;
+        public List<int> highScorePlayerData;
     }
 }

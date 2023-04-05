@@ -6,8 +6,7 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject newGameUI; //BASIC ENCAPSULATION
-    [SerializeField] private GameObject mainMenuUI; //BASIC ENCAPSULATION
+    [SerializeField] protected GameObject mainMenuUI; //BASIC ENCAPSULATION
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +19,7 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    public void OpenNewGame()
-    {
-        mainMenuUI.SetActive(false);
-        newGameUI.SetActive(true);
-    }
-
-    public void BackToMainMenu()
-    {
-        newGameUI.SetActive(false);
-        mainMenuUI.SetActive(true);
-    }
+    public virtual void BackToMainMenu() { }
 
     public void ExitGame()
     {
