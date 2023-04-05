@@ -26,6 +26,6 @@ public class DifficultySelection : MonoBehaviour
 
     private void StartGame()
     {
-        gameManager.StartGame(difficultyValue, difficultyTimer, difficultyGravity);
+        //gameManager.StartGame(difficultyValue, difficultyTimer, difficultyGravity);
     }
 }
