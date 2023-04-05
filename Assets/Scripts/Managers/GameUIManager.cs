@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameUIManager : MonoBehaviour
 {
     [SerializeField] private Text playerNameText;
     [SerializeField] private Text gameTimerText;
+    [SerializeField] private Text countText;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject[] playerLives;
 
@@ -27,6 +28,11 @@ public class GameUIManager : MonoBehaviour
 
     }
 
+    public void BackToMenuScene()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
     private void SetupGame()
     {
         gameOver = false;
@@ -41,6 +47,7 @@ public class GameUIManager : MonoBehaviour
         if (gameOver)
         {
             gameOverScreen.SetActive(true);
+            GameManager.gameInstance.CheckHighScore(int.Parse(countText.text));
         }
     }
 
