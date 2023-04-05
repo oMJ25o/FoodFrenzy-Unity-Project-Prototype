@@ -38,7 +38,7 @@ public class Target : MonoBehaviour
         GetComponent<Rigidbody>().AddTorque(GenerateRandomRotation() * rotationSpeed, ForceMode.Impulse);
     }
 
-    /*private void OnMouseDown()
+    private void OnMouseDown()
     {
         if (gameObject.CompareTag("Food") && !gameManager.gameOver)
         {
@@ -54,5 +54,5 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }*/
+    }
 }
